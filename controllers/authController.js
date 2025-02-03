@@ -75,50 +75,6 @@ export const register = async (req, res) => {
     }
 };
 
-// // Login a User
-// export const login = async (req, res) => {
-//     const { email, password } = req.body;
-
-//     // Validate the input
-//     const { error } = userValidationSchema.validate({ email, password });
-//     if (error) {
-//         return res.status(400).json({
-//             message: error.details.map(detail => detail.message).join(', ')
-//         });
-//     }
-
-//     try {
-//         // Check if the user exists in the database
-//         const user = await User.findOne({ email });
-//         if (!user) {
-//             return res.status(400).json({
-//                 message: 'Invalid credentials'
-//             });
-//         }
-
-//         // Check if the password is correct
-//         const passwordMatch = await bcrypt.compare(password, user.password);
-//         if (!passwordMatch) {
-//             return res.status(400).json({
-//                 message: 'Invalid credentials'
-//             });
-//         }
-
-//         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-//             expiresIn: '1h',
-//         });
-
-//         res.status(200).json({
-//             message: `User : ${email} >> logged in successfully`,
-//             token
-//         });
-//     } catch (error) {
-//         res.status(500).json({
-//             message: 'Server error'
-//         });
-//     }
-// };
-
 // Login a User
 export const login = async (req, res) => {
     // Extract email and password from the request body
